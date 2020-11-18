@@ -2,8 +2,18 @@
   <section>
     <header><h1>My friends</h1></header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact
+        name="Manuel"
+        phone-number="011 44 11 23"
+        email-adres="manu@ukr.net"
+      >
+      </friend-contact>
+      <friend-contact
+        name="Lama"
+        phone-number="033 44 22 12"
+        email-adres="lama12@ukr.net"
+      >
+      </friend-contact>
     </ul>
   </section>
 </template>
@@ -39,7 +49,7 @@ export default {
 }
 
 html {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
