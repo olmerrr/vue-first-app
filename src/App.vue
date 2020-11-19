@@ -6,12 +6,15 @@
         name="Manuel"
         phone-number="011 44 11 23"
         email-adres="manu@ukr.net"
+        isFavorite="1"
       >
       </friend-contact>
       <friend-contact
         name="Lama"
         phone-number="033 44 22 12"
         email-adres="lama12@ukr.net"
+        isFavorite="0"
+
       >
       </friend-contact>
     </ul>
