@@ -1,6 +1,9 @@
 <template>
   <section>
     <header><h1>My friends</h1></header>
+
+    <new-friend @add-contact="addContact" class="new-friend"></new-friend>
+
     <ul>
       <friend-contact
         v-for="friend in friends"
@@ -20,7 +23,9 @@
 
 
 <script>
+import NewFriend from "./components/NewFriend.vue";
 export default {
+  components: { NewFriend },
   data() {
     return {
       friends: [
@@ -29,23 +34,35 @@ export default {
           name: "Manuel",
           phone: "011 44 11 23",
           email: "manu@ukr.net",
-          isFavorite: true
+          isFavorite: true,
         },
         {
           id: "lama",
           name: "Lama",
           phone: "012 40 61 30",
           email: "lama12@ukr.net",
-          isFavorite: false
+          isFavorite: false,
         },
       ],
     };
   },
   methods: {
     toggleFavoriteStatus(friendId) {
-      const identifiedFriend = this.friends.find(friend => friend.id === friendId);
+      const identifiedFriend = this.friends.find(
+        (friend) => friend.id === friendId
+      );
       identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
-}
+    },
+    addContact(name, phone, email) {
+      const newFriendContact = {
+        id: new Date().toISOString(),
+        name: name,
+        phone: phone,
+        email: email,
+        isFavorite: false,
+      };
+      this.friends.push(newFriendContact);
+    },
   },
 };
 </script>
@@ -73,14 +90,19 @@ header {
   width: 90%;
   max-width: 40rem;
 }
-
+.new-friend input{
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 10px;
+}
 #app ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-#app li {
+#app li,
+#app form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
@@ -89,7 +111,6 @@ header {
   width: 90%;
   max-width: 40rem;
 }
-
 #app h2 {
   font-size: 2rem;
   border-bottom: 4px solid #ccc;
@@ -100,10 +121,11 @@ header {
 #app button {
   font: inherit;
   cursor: pointer;
-  border: 1px solid #ff0077;
+  border: 1px solid #fff;
   background-color: #ff0077;
+  border-radius: 0.2rem;
   color: white;
-  padding: 0.05rem 1rem;
+  padding: 0.3rem 1rem;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
 }
 
