@@ -8,6 +8,7 @@
       :info-text="activeUser.description"
       :role="activeUser.role"
     ></user-info>
+    
   </div>
 </template>
 
