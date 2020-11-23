@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <the-header></the-header>
@@ -10,17 +11,27 @@
   </div>
 </template>
 
+
 <script>
+import TheHeader from './components/TheHeader.vue';
+import BadgeList from './components/BadgeList';
+import UserInfo from './components/UserInfo';
+
 export default {
-  data() {
-    return {
-      activeUser: {
-        name: 'Maximilian Schwarzmüller',
-        description: 'Site owner and admin',
-        role: 'admin',
-      },
-    };
+  components: {
+     TheHeader,
+     BadgeList,
+     UserInfo,
   },
+  data() {
+      return {
+        activeUser: {
+          name: 'Yaroslav Dombrovskiy',
+          description: 'Site owner and admin',
+          role: 'admin',
+        },
+      };
+    },
 };
 </script>
 
