@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="goal in goals" :key="goal">
-      {{ goal }}
+      <slot :item="goal" another-prop="..."></slot>
     </li>
   </ul>
 </template>
@@ -9,13 +9,14 @@
 export default {
   data() {
     return {
-      goals: ['Finish the course', 'Lern Vue'],
-    }
+      goals: ["Finish the course", "Lern Vue"],
+    };
   },
-}
+};
 </script>
 <style scoped>
-  ul,li {
-    list-style: none
-  }
+ul,
+li {
+  list-style: none;
+}
 </style>
