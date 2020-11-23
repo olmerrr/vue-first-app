@@ -9,7 +9,9 @@
     <manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals> -->
 
     <!-- dynamic components -->
-    <component :is="selectedComponent"></component>
+    <keep-alive>
+      <component :is="selectedComponent"></component>
+    </keep-alive>
     <!-- dynamic components -->
   </div>
 </template>
